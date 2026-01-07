@@ -1,0 +1,14 @@
+D:\VsCode\ValueTypeConversion\bin\Debug\net10.0\ValueTypeConversion.exe
+D:\VsCode\ValueTypeConversion\bin\Debug\net10.0\ValueTypeConversion.deps.json
+D:\VsCode\ValueTypeConversion\bin\Debug\net10.0\ValueTypeConversion.runtimeconfig.json
+D:\VsCode\ValueTypeConversion\bin\Debug\net10.0\ValueTypeConversion.dll
+D:\VsCode\ValueTypeConversion\bin\Debug\net10.0\ValueTypeConversion.pdb
+D:\VsCode\ValueTypeConversion\obj\Debug\net10.0\ValueTypeConversion.GeneratedMSBuildEditorConfig.editorconfig
+D:\VsCode\ValueTypeConversion\obj\Debug\net10.0\ValueTypeConversion.AssemblyInfoInputs.cache
+D:\VsCode\ValueTypeConversion\obj\Debug\net10.0\ValueTypeConversion.AssemblyInfo.cs
+D:\VsCode\ValueTypeConversion\obj\Debug\net10.0\ValueTypeConversion.csproj.CoreCompileInputs.cache
+D:\VsCode\ValueTypeConversion\obj\Debug\net10.0\ValueTypeConversion.dll
+D:\VsCode\ValueTypeConversion\obj\Debug\net10.0\refint\ValueTypeConversion.dll
+D:\VsCode\ValueTypeConversion\obj\Debug\net10.0\ValueTypeConversion.pdb
+D:\VsCode\ValueTypeConversion\obj\Debug\net10.0\ValueTypeConversion.genruntimeconfig.cache
+D:\VsCode\ValueTypeConversion\obj\Debug\net10.0\ref\ValueTypeConversion.dll
