@@ -90,11 +90,12 @@ namespace SmartAccessControl
             }
 
             // ---------------- Output Formatting ----------------
-            Console.WriteLine($"{"Gate".PadRight(10)}: {gateCode}");
-            Console.WriteLine($"{"User".PadRight(10)}: {userInitial}");
-            Console.WriteLine($"{"Level".PadRight(10)}: {accessLevel}");
-            Console.WriteLine($"{"Attempts".PadRight(10)}: {attempts}");
-            Console.WriteLine($"{"Status".PadRight(10)}: {status}");
+            Console.WriteLine($"{ "Gate",-10 }: {gateCode}");
+            Console.WriteLine($"{ "User",-10 }: {userInitial}");
+            Console.WriteLine($"{ "Level",-10 }: {accessLevel}");
+            Console.WriteLine($"{ "Attempts",-10 }: {attempts}");
+            Console.WriteLine($"{ "Status",-10 }: {status}");
+
         }
     }
 }
