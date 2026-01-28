@@ -4,7 +4,7 @@
     {
         public string ModelName { get; set; }
 
-        public Vehicle(string modelName)
+        protected Vehicle(string modelName)
         {
             ModelName = modelName;
         }
