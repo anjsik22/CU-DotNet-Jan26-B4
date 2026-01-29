@@ -1,38 +1,50 @@
-int getTotalX(vector<int> a, vector<int> b) {
-    // GCD function
-    auto gcd = [](int x, int y) {
-        while (y != 0) {
+int getTotalX(vector<int> a, vector<int> b)
+{
+    // Find LCM of array a
+    int lcmA = a[0];
+    for (int i = 1; i < a.size(); i++)
+    {
+        int x = lcmA;
+        int y = a[i];
+
+        // GCD calculation
+        while (y != 0)
+        {
             int temp = y;
             y = x % y;
             x = temp;
         }
-        return x;
-    };
 
-    // LCM function
-    auto lcm = [&](int x, int y) {
-        return (x * y) / gcd(x, y);
-    };
-
-    // LCM of array a
-    int lcmA = a[0];
-    for (int i = 1; i < a.size(); i++) {
-        lcmA = lcm(lcmA, a[i]);
+        int gcd = x;
+        lcmA = (lcmA * a[i]) / gcd;
     }
 
-    // GCD of array b
+    // Find GCD of array b
     int gcdB = b[0];
-    for (int i = 1; i < b.size(); i++) {
-        gcdB = gcd(gcdB, b[i]);
+    for (int i = 1; i < b.size(); i++)
+    {
+        int x = gcdB;
+        int y = b[i];
+
+        while (y != 0)
+        {
+            int temp = y;
+            y = x % y;
+            x = temp;
+        }
+
+        gcdB = x;
     }
 
     // Count valid numbers
     int count = 0;
-    for (int x = lcmA; x <= gcdB; x += lcmA) {
+    for (int x = lcmA; x <= gcdB; x += lcmA)
+    {
         if (gcdB % x == 0)
             count++;
     }
 
     return count;
 }
+
 
