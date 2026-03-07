@@ -1,0 +1,32 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "value-type-conversion", "value-type-conversion", "{C63E35AE-79EA-8910-06DD-9A9260E54BAA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "code", "code", "{AE8B3706-963C-1BC2-522C-B8E239CA6EBF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValueTypeConversion", "value-type-conversion\code\ValueTypeConversion.csproj", "{A0991556-1427-0A8B-0AC7-507E972F9FD5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A0991556-1427-0A8B-0AC7-507E972F9FD5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0991556-1427-0A8B-0AC7-507E972F9FD5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0991556-1427-0A8B-0AC7-507E972F9FD5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0991556-1427-0A8B-0AC7-507E972F9FD5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{AE8B3706-963C-1BC2-522C-B8E239CA6EBF} = {C63E35AE-79EA-8910-06DD-9A9260E54BAA}
+		{A0991556-1427-0A8B-0AC7-507E972F9FD5} = {AE8B3706-963C-1BC2-522C-B8E239CA6EBF}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A6166E1F-ECA9-4A00-8C5B-CEB303E03D39}
+	EndGlobalSection
+EndGlobal

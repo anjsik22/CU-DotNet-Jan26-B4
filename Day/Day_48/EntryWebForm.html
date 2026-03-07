@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Bank Account Opening Form</h1>
+    <form>
+        <table>
+            <tr>
+                <td>
+                    <label>Account Type</label>
+                </td>
+                <td>
+                    <select id="account type" name="account type" required>
+                        <option value="">Select Option</option>
+                        <option value="1">Savings</option>
+                        <option value="2">Checking</option>
+                        <option value="3">Joint Account</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Full Name</label>
+                </td>
+                <td>
+                    <input type="text" name="name" id="name" required/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Date of Birth</label>
+                </td>
+                <td>
+                    <input type="date" name="dob" id="dob" min="1990-01-01" max="2024-12-31" required/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Phone Number</label>
+                </td>
+                <td>
+                    <input type="tel" name="telephone" id="telephone" required/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Email Address</label>
+                </td>
+                <td>
+                    <input type="email" name="email" id="email" required/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Residential Address</label>
+                </td>
+                <td>
+                    <input type="text" name="address" id="address" required/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                   <label>Preferred Currency</label>
+                </td>
+                <td>
+                    <input type="radio" name="currency" id="IND" value="IND" required/><label for="IND">IND</label>
+                    <input type="radio" name="currency" id="USD" value="USD" required/><label for="USD">USD</label>
+                    <input type="radio" name="currency" value="Other">
+                    <input type="text" name="otherCurrency" placeholder="Enter currency">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Initial Deposit Amount</label>
+                </td>
+                <td>
+                    <input type="number" name="deposit" id="deposit" min="100" required/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Occupation</label>
+                </td>
+                <td>
+                    <input type="text" name="occupation" id="occupation" required/>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+        <input type="checkbox" required>
+        I confirm that the information provided is accurate and agree to the terms and conditions of the bank.
+    </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Signature</label>
+                    <input type="text" name="signature" id="signature" required/>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <input type="submit" value="Submit">
+                </td>
+            </tr>
+        </table>
+    </form>
+    
+</body>
+</html>
