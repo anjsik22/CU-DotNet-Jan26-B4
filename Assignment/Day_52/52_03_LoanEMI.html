@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Loan EMI Calculator</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+    <script>
+
+        function calculateEMI() {
+
+            let P = parseFloat(document.getElementById("amount").value);
+            let rate = parseFloat(document.getElementById("rate").value);
+            let months = parseInt(document.getElementById("months").value);
+
+            let r = rate / 12 / 100;
+
+            let EMI = (P * r * Math.pow(1 + r, months)) / (Math.pow(1 + r, months) - 1);
+
+            let balance = P;
+
+            let tbody = document.getElementById("scheduleBody");
+
+            // tbody.innerHTML = "";
+
+            for (let i = 1; i <= months; i++) {
+
+                let interest = balance * r;
+                let principal = EMI - interest;
+                let remaining = balance - principal;
+
+                let row = `
+                <tr>
+                    <td class="text-center">${i}</td>
+                    <td class="text-end">${balance.toFixed(2)}</td>
+                    <td class="text-end">${EMI.toFixed(2)}</td>
+                    <td class="text-end">${principal.toFixed(2)}</td>
+                    <td class="text-end">${interest.toFixed(2)}</td>
+                    <td class="text-end">${remaining.toFixed(2)}</td>
+                </tr>
+                `;
+
+                tbody.innerHTML += row;
+
+                balance = remaining;
+            }
+
+        }
+
+    </script>
+
+</head>
+
+<body>
+    <div>
+
+    <h1>Debt Loan Calculator</h2>
+
+        Loan Amount
+        <input type="text" id="amount"><br><br>
+
+        Interest Rate (%)
+        <input type="text" id="rate"><br><br>
+
+        Months
+        <input type="text" id="months"><br><br>
+
+        <button onclick="calculateEMI()">Calculate</button>
+
+        <br><br>
+
+        <table border="1" class="table table-striped">
+
+        <thead class="text-end">
+            <tr>
+                <th>SNO</th>
+                <th>Loan Left</th>
+                <th>EMI</th>
+                <th>Principal</th>
+                <th>Interest</th>
+                <th>Remaining Balance</th>
+            </tr>
+        </thead>
+
+            <tbody id="scheduleBody">
+            </tbody>
+
+        </table>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+            crossorigin="anonymous"></script>
+    </div>
+</body>
+
+</html>

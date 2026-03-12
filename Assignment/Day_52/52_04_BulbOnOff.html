@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function switchOn(){
+            document.getElementById('bulb').src='download_1.jpg';
+        }
+        function switchOff(){
+            document.getElementById('bulb').src='download.jpg';
+        }
+        </script>
+    
+</head>
+<body>
+    <input type="button" value="Switch ON" onclick="switchOn()">
+    <img id="bulb" src="download.jpg" alt="Bulb Image">
+    <input type="button" value="Switch OFF" onclick="switchOff()">
+</body>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function showDetails(){
+
+        let name = document.getElementById("ename").value;
+
+        // Gender
+       let gender = "";
+       let genders = document.getElementsByName("gender");
+
+        for(let i = 0; i < genders.length; i++){
+            if(genders[i].checked){
+                gender = genders[i].value;
+            }
+        }
+
+        // Skills
+        let skills = document.getElementsByName("skills");
+        let labels = document.getElementsByName("lblSkill");
+        let skillList = "";
+
+        for(let i=0;i<skills.length;i++){
+            if(skills[i].checked){
+                skillList += labels[i].innerHTML + " ";
+            }
+        }
+
+        // City
+        let city = "";
+        let cities = document.getElementById("city");
+
+        for(let i = 0; i < cities.length; i++){
+            if(cities[i].selected){
+                city = cities[i].text;
+            }
+        }
+
+        // Other fields
+        let email = document.getElementById("email").value;
+        let age = document.getElementById("age").value;
+        let dob = document.getElementById("dob").value;
+
+        // Concatenated string
+        let result = "Name: " + name +
+                    "\nGender: " + gender +
+                    "\nSkills: " + skillList +
+                    "\nCity: " + city +
+                    "\nEmail: " + email +
+                    "\nAge: " + age +
+                    "\nDOB: " + dob;
+
+        console.log(result);
+    }
+    </script>
+</head>
+<body>
+    <h1>Employee Registration Form</h1>
+    <form onsubmit="showDetails(); return false;">
+        <table>
+            <tr>
+                <td>
+                    <label>Enter your name</label>
+                </td>
+                <td>
+                    <input type="text" pattern="[A-Z]{1}[a-z]{1,}" name="ename" id="ename"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Select Gender</label>
+                </td>
+                <td>
+                    <input type="radio" name="gender" id="male" value="M" /><label for="male">Male</label>
+                    <input type="radio" name="gender" id="female" value="F"/><label for="female">Female</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Select Skills</label>
+                </td>
+                <td>
+                    <input type="checkbox" name="skills" id="java" value="1"/><label name="lblSkill" for="java">Java</label>
+                    <input type="checkbox" name="skills" id="python" value="2"/><label name="lblSkill" for="python">Python</label>
+                    <input type="checkbox" name="skills" id="javascript" value="3"/><label name="lblSkill" for="javascript">JavaScript</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Select City</label>
+                </td>
+                <td>
+                    <select id="city" name="city" >
+                        <option value="">Select</option>
+                        <option value="1">Delhi</option>
+                        <option value="2">Mumbai</option>
+                        <option value="3">Kolkata</option>
+                        <option value="4">Chandigarh</option>
+                        <option value="5">Bengaluru</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label> Enter your email</label>
+                </td>
+                <td>
+                    <input type="email" name="email" id="email"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label> Enter your Age</label>
+                </td>
+                <td>
+                    <input type="number" name="age" id="age" min="18" max="60" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>Enter DOB</label>
+                </td>
+                <td>
+                    <input type="date" name="dob" id="dob" min="2000-01-01" max="2010-12-31"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" id="submit">
+                    <input type="reset">
+                </td>
+            </tr>
+            
+            
+        </table>
+    </form>
+</body>
+
+

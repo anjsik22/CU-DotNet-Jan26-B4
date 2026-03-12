@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+    function sum(el){
+
+    let num1=document.getElementById("num1");
+    let num2=document.getElementById("num2");
+    let result=document.getElementById("result");
+
+    let v1=num1.value;
+    let v2=num2.value;
+
+    // check only the current textbox
+    if(el.value==""){
+        el.style.backgroundColor="red";
+        result.value="Error";
+        result.style.backgroundColor="orange";
+        return;
+    }
+
+    if(isNaN(el.value)){
+        el.style.backgroundColor="yellow";
+        result.value="Error";
+        result.style.backgroundColor="orange";
+        return;
+    }
+
+    el.style.backgroundColor="white";
+
+    // calculate only if both values exist
+    if(v1!="" && v2!="" && !isNaN(v1) && !isNaN(v2)){
+        result.style.backgroundColor="white";
+        result.value = Number(v1) + Number(v2);
+    }
+}
+    </script>
+</head>
+<body>
+    <script>
+    
+    </script>
+    <div>
+        <input type="text" id="num1" onblur="sum(this)"> +
+        <input type="text" id="num2" onblur="sum(this)">
+        <button onclick="sum()">=</button>
+        <input type="text" id="result" readonly>
+    </div>
+</body>
+</html>
