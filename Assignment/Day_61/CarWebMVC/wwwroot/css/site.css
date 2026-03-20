@@ -1,0 +1,46 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+/* NAVBAR */
+.custom-navbar {
+    background-color: #c31432;
+}
+
+    .custom-navbar .navbar-brand,
+    .custom-navbar .nav-link {
+        color: #ffffff !important;
+    }
+
+        .custom-navbar .nav-link:hover {
+            color: #ffd6dc !important;
+        }
+
+/* FOOTER */
+.custom-footer {
+    background-color: #c31432;
+    color: white;
+    padding: 15px 0;
+}
+
+    .custom-footer a {
+        color: #ffffff;
+    }
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}

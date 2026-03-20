@@ -1,0 +1,210 @@
+﻿@page
+@model LoginModel
+@{
+    ViewData["Title"] = "Log in";
+}
+
+<style>
+:root{
+    --primary: #ff6b6b;
+    --primary-dark: #c31432;
+}
+.login-global-bg {
+    /* fallback global class in case body styles are overridden */
+    background: linear-gradient(135deg, #c31432 0%, #ff6b6b 40%, #fff0f6 100%);
+}
+html, body {
+    height: 100%;
+    margin: 0; /* remove white page margin */
+    background: linear-gradient(135deg, #c31432 0%, #ff6b6b 40%, #fff0f6 100%);
+}
+
+.login-page {
+    /* leave room for the site footer without forcing a scrollbar */
+    min-height: calc(100vh - 120px);
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 40px;
+}
+
+.login-card {
+    display: flex;
+    width: 900px;
+    max-width: calc(100% - 80px);
+    height: 520px;
+    border-radius: 16px; /* outer rounded container */
+    overflow: hidden;
+    /* keep outer container transparent so page gradient shows through */
+    background: transparent;
+    box-shadow: 0 20px 40px rgba(18,22,32,0.12);
+    position: relative;
+}
+
+/* LEFT SIDE - warm gradient */
+.login-visual {
+    flex: 1;
+    padding: 48px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    background: linear-gradient(135deg, #c31432 0%, #ff6b6b 100%);
+    position: relative;
+}
+.login-visual::before{
+    content: '';
+    position: absolute;
+    right: -80px;
+    top: -40px;
+    width: 320px;
+    height: 320px;
+    background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.08), rgba(255,255,255,0));
+    transform: rotate(15deg);
+    border-radius: 50%;
+}
+
+/* RIGHT SIDE - clean white with floating card */
+.login-form {
+    flex: 1;
+    padding: 48px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* keep panel transparent so the page ink shows through; floating card provides contrast */
+    background:white;
+    position: relative;
+}
+
+/* inner floating card */
+.login-form .card {
+    width: 340px;
+    margin-left: auto;
+    margin-right: auto;
+    background: rgba(255,255,255,0.98);
+    border-radius: 12px;
+    padding: 22px;
+    box-shadow: 0 10px 30px rgba(16,24,32,0.12);
+}
+
+/* decorative concentric rings on the right side */
+/* .login-page .decorative{
+    position: absolute;
+    right: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 380px;
+    height: 380px;
+    pointer-events: none;
+}
+.login-page .decorative .rings{
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background:
+        radial-gradient(circle at center, rgba(195,15,50,0.06) 50%, transparent 51%),
+        radial-gradient(circle at center, rgba(195,15,50,0.03) 30%, transparent 31%),
+        radial-gradient(circle at center, rgba(195,15,50,0.02) 15%, transparent 16%);
+} */
+/* .login-page .decorative .dot{
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--primary);
+    box-shadow: 0 6px 14px rgba(199,27,48,0.28);
+} */
+.login-page .decorative .dot.one{ right:18%; top:12%; transform: translate(50%,-50%);} 
+.login-page .decorative .dot.two{ right:45%; bottom:10%; transform: translate(50%,50%);} 
+
+.btn-danger{ background: var(--primary); border: none; }
+.btn-danger:hover{ background: var(--primary-dark); }
+
+@@media (max-width: 900px){
+    .login-card{ flex-direction: column; height: auto; }
+    .login-visual{ padding: 24px; text-align: center; align-items: center; }
+    .login-form{ padding: 24px; }
+    .login-form .card{ width: 100%; }
+    .login-page .decorative{ display: none; }
+}
+</style>
+
+<div class="login-page">
+    <div class="login-card">
+
+        <!-- LEFT PANEL -->
+       <div class="login-visual text-center">
+
+    <!-- LOGO -->
+    <img src="data:image/jpeg;base64,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" 
+         alt="Company Logo" 
+         style="width:100px; border-radius:10px; margin-bottom:20px;" />
+
+    <!-- COMPANY NAME -->
+    <h2 class="fw-bold">Contoso Automotive</h2>
+
+    <!-- OPTIONAL TAGLINE -->
+    <p class="mt-2">Secure portal for employees and partners</p>
+
+</div>
+
+        <!-- RIGHT PANEL -->
+        <div class="login-form">
+
+            <div class="card">
+                <h4 class="text-center mb-3">Login</h4>
+
+                <form id="account" method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                    <!-- EMAIL -->
+                    <div class="mb-3">
+                        <label>Email</label>
+                        <input asp-for="Input.Email" class="form-control" />
+                        <span asp-validation-for="Input.Email" class="text-danger"></span>
+                    </div>
+
+                    <!-- PASSWORD -->
+                    <div class="mb-3">
+                        <label>Password</label>
+                        <input asp-for="Input.Password" class="form-control" type="password" />
+                        <span asp-validation-for="Input.Password" class="text-danger"></span>
+                    </div>
+
+                    <!-- REMEMBER -->
+                    <div class="form-check mb-3">
+                        <input asp-for="Input.RememberMe" class="form-check-input" />
+                        <label asp-for="Input.RememberMe" class="form-check-label"></label>
+                    </div>
+
+                    <!-- BUTTON -->
+                    <button type="submit" class="btn btn-danger w-100">LOG IN</button>
+
+                    <!-- LINKS -->
+                    <div class="text-center mt-3">
+                        <a asp-page="./ForgotPassword">Forgot password?</a><br />
+                        <a asp-page="./Register">Register</a>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+
+    </div>
+    <div class="decorative" aria-hidden="true">
+        <div class="rings"></div>
+        <div class="dot one"></div>
+        <div class="dot two"></div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        // add a body class so footer spacing only applies on this page
+        (function(){ document.body.classList.add('login-page-route'); })();
+    </script>
+}

@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewData["Title"] = "Summary";
+}
+
+<h2>Market Summary</h2>
+
+<!-- Bootstrap Alert -->
+<div class="alert alert-success">
+    Market Status: <strong>@ViewBag.MarketStatus</strong>
+</div>
+
+<!-- Bootstrap Card -->
+<div class="card" style="width: 18rem;">
+    <div class="card-body">
+        <h5 class="card-title">Top Gainer</h5>
+
+        <p class="card-text">
+            Stock: @ViewData["TopGainer"]
+        </p>
+
+        <p class="card-text">
+            Volume: @ViewData["Volume"]
+        </p>
+    </div>
+</div>
+

@@ -30,11 +30,11 @@
     <tbody>
 @foreach (var item in Model) {
         <tr>
-            <td>
+                <td>
                 @Html.DisplayFor(modelItem => item.Description)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Amount)
+                @(item.Amount < 0 ? Math.Abs(item.Amount).ToString("C") : item.Amount.ToString("C"))
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Category)

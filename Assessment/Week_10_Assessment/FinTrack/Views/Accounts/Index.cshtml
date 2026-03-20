@@ -24,7 +24,7 @@
                     &nbsp;|&nbsp;
                     <strong>Holder:</strong> @account.AccountHolder
                     &nbsp;|&nbsp;
-                    <strong>Balance:</strong> @account.Balance
+                    <strong>Balance:</strong> @( (account.Balance + (account.Transactions != null ? account.Transactions.Sum(t => t.Amount) : 0.0)).ToString("C") )
 
                 </button>
             </h2>
@@ -58,6 +58,15 @@
 
                     </div>
 
+                    @{
+                        var initialBalance = account.Balance;
+                        var totalCredit = (account.Transactions != null && account.Transactions.Any()) ? account.Transactions.Where(t => t.Amount >= 0).Sum(t => t.Amount) : 0.0;
+                        var totalDebit = (account.Transactions != null && account.Transactions.Any()) ? account.Transactions.Where(t => t.Amount < 0).Sum(t => -t.Amount) : 0.0;
+                        var finalBalance = initialBalance + ((account.Transactions != null && account.Transactions.Any()) ? account.Transactions.Sum(t => t.Amount) : 0.0);
+                    }
+
+                    <p><strong>Initial Balance:</strong> @initialBalance.ToString("C")</p>
+
                     <table class="table table-bordered">
                         <thead>
                             <tr>
@@ -68,17 +77,23 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach (var t in account.Transactions)
+                            @foreach (var t in account.Transactions ?? Enumerable.Empty<FinTrack.Models.Transaction>())
                             {
-                                <tr>
+                                <tr class="@(t.Amount >= 0 ? "table-success" : "table-danger")">
                                     <td>@t.Description</td>
-                                    <td>@t.Amount</td>
+                                    <td>@t.Amount.ToString("C")</td>
                                     <td>@t.Category</td>
                                     <td>@t.Date.ToString("dd-MM-yyyy")</td>
                                 </tr>
                             }
                         </tbody>
                     </table>
+
+                    <div class="mt-2">
+                        <p><strong>Total Credit:</strong> @totalCredit.ToString("C")</p>
+                        <p><strong>Total Debited:</strong> @totalDebit.ToString("C")</p>
+                        <p><strong>Final Balance:</strong> <strong>@finalBalance.ToString("C")</strong></p>
+                    </div>
 
                 </div>
             </div>

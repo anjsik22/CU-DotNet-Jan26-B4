@@ -69,6 +69,16 @@ namespace FinTrack.Controllers
                 return Content(string.Join("\n", errors));
             }
 
+            // Ensure Amount sign matches Category: Debit => negative, Credit => positive
+            if (!string.IsNullOrWhiteSpace(transaction.Category) && transaction.Category.Equals("Debit", StringComparison.OrdinalIgnoreCase))
+            {
+                transaction.Amount = -Math.Abs(transaction.Amount);
+            }
+            else
+            {
+                transaction.Amount = Math.Abs(transaction.Amount);
+            }
+
             _context.Add(transaction);
             await _context.SaveChangesAsync();
 
@@ -108,6 +118,16 @@ namespace FinTrack.Controllers
             {
                 try
                 {
+                    // Ensure Amount sign matches Category before saving
+                    if (!string.IsNullOrWhiteSpace(transaction.Category) && transaction.Category.Equals("Debit", StringComparison.OrdinalIgnoreCase))
+                    {
+                        transaction.Amount = -Math.Abs(transaction.Amount);
+                    }
+                    else
+                    {
+                        transaction.Amount = Math.Abs(transaction.Amount);
+                    }
+
                     _context.Update(transaction);
                     await _context.SaveChangesAsync();
                 }

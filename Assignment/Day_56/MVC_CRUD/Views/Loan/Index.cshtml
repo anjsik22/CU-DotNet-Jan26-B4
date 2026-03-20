@@ -1,0 +1,58 @@
+﻿@model IEnumerable<MVC_CRUD.Models.Loan>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Add">Add New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.LoanId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BorrowerName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LenderName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Amount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsSettled)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.LoanId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BorrowerName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LenderName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Amount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsSettled)
+            </td>
+            <td>
+                    <a asp-action="Edit" asp-route-id="@item.LoanId" class="btn btn-warning">Edit</a>
+                    <a asp-action="Delete" asp-route-id="@item.LoanId" class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
