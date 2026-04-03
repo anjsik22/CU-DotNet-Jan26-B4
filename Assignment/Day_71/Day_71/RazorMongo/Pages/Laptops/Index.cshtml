@@ -1,0 +1,36 @@
+﻿@page
+@model RazorMongo.Pages.Laptops.IndexModel
+
+<h2 class="mb-3">Laptop List</h2>
+
+<a asp-page="Create" class="btn btn-primary mb-3">Add Laptop</a>
+
+<table class="table table-bordered table-striped">
+    <thead class="table-dark">
+        <tr>
+            <th>Model</th>
+            <th>Serial</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @if (Model.Laptops != null && Model.Laptops.Count > 0)
+        {
+            foreach (var item in Model.Laptops)
+            {
+                <tr>
+                    <td>@item.ModelName</td>
+                    <td>@item.SerialNumber</td>
+                    <td>@item.Price</td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="3" class="text-center">No laptops found</td>
+            </tr>
+        }
+    </tbody>
+</table>
