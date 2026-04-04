@@ -1,0 +1,87 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="container mt-5">
+
+    <!-- App Heading + Add Button -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h1 class="fw-bold text-primary">🌍 Destination App</h1>
+            <p class="text-muted mb-0">Explore and manage your travel destinations</p>
+        </div>
+
+        <a class="btn btn-success btn-lg shadow-sm"
+               asp-controller="Travel"
+               asp-action="Create">
+            ➕ Add Destination
+        </a>
+    </div>
+
+    <!-- Card -->
+    <div class="card shadow-lg border-0 rounded-4">
+        <div class="card-body">
+
+            <table class="table table-hover align-middle text-center">
+                <thead class="table-dark">
+                    <tr>
+                        <th>City</th>
+                        <th>Country</th>
+                        <th>Description</th>
+                        <th>Rating</th>
+                        <th>Last Visited</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td class="fw-semibold">@item.CityName</td>
+
+                            <td>
+                                <span class="badge bg-info text-dark px-3 py-2">
+                                    @item.Country
+                                </span>
+                            </td>
+
+                            <td class="text-muted">
+                                @item.Description
+                            </td>
+
+                            <td>
+                                <span class="badge bg-success px-3 py-2">
+                                    @item.Rating ⭐
+                                </span>
+                            </td>
+
+                            <td class="text-secondary">
+                                @item.LastVisited
+                            </td>
+
+                            <!-- Action Buttons -->
+                            <td>
+                                <a class="btn btn-sm btn-outline-warning me-2"
+                                       asp-action="Edit"
+                                       asp-route-id="@item.Id">
+                                    ✏ Edit
+                                </a>
+
+                                <a class="btn btn-sm btn-outline-danger"
+                                       asp-action="Delete"
+                                       asp-route-id="@item.Id"
+                                       onclick="return confirm('Are you sure you want to delete this destination?');">
+                                    🗑 Delete
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+
+            </table>
+
+        </div>
+    </div>
+</div>
