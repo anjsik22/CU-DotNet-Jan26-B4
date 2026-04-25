@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="NorthWindCatalog.Services/NorthWindCatalog.Services.csproj" />
+  <Project Path="NorthWindCatalog.Tests/NorthWindCatalog.Tests.csproj" />
+  <Project Path="NorthWindCatalog.Web/NorthWindCatalog.Web.csproj" />
+</Solution>
