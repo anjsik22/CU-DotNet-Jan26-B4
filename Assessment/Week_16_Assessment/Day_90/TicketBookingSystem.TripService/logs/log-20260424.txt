@@ -1,0 +1,25 @@
+2026-04-24 15:31:05.526 +05:30 [INF] User profile is available. Using 'C:\Users\anjal\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-04-24 15:31:06.126 +05:30 [INF] Now listening on: https://localhost:5004
+2026-04-24 15:31:06.129 +05:30 [INF] Now listening on: http://localhost:5101
+2026-04-24 15:31:06.351 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2026-04-24 15:31:06.358 +05:30 [INF] Hosting environment: Development
+2026-04-24 15:31:06.360 +05:30 [INF] Content root path: C:\Users\anjal\source\repos\Practice\NewWORKAPI\NewWORKAPI\TicketBookingSystem.TripService\TicketBookingSystem.TripService
+2026-04-24 15:31:09.058 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5004/swagger/index.html - null null
+2026-04-24 15:31:09.825 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5004/_vs/browserLink - null null
+2026-04-24 15:31:09.823 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5004/_framework/aspnetcore-browser-refresh.js - null null
+2026-04-24 15:31:09.875 +05:30 [INF] Request finished HTTP/2 GET https://localhost:5004/swagger/index.html - 200 null text/html;charset=utf-8 822.9514ms
+2026-04-24 15:31:09.899 +05:30 [INF] Request finished HTTP/2 GET https://localhost:5004/_framework/aspnetcore-browser-refresh.js - 200 14967 application/javascript; charset=utf-8 76.1242ms
+2026-04-24 15:31:10.067 +05:30 [INF] Request finished HTTP/2 GET https://localhost:5004/_vs/browserLink - 200 null text/javascript; charset=UTF-8 242.8508ms
+2026-04-24 15:31:10.317 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5004/swagger/v1/swagger.json - null null
+2026-04-24 15:31:10.394 +05:30 [INF] Request finished HTTP/2 GET https://localhost:5004/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 77.4834ms
+2026-04-24 15:31:16.706 +05:30 [INF] Request starting HTTP/2 GET https://localhost:5004/api/Trips - null null
+2026-04-24 15:31:16.826 +05:30 [INF] Executing endpoint 'TicketBookingSystem.TripService.Controllers.TripsController.GetTrips (TicketBookingSystem.TripService)'
+2026-04-24 15:31:16.869 +05:30 [INF] Route matched with {action = "GetTrips", controller = "Trips"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[TicketBookingSystem.TripService.Models.Trip]]] GetTrips() on controller TicketBookingSystem.TripService.Controllers.TripsController (TicketBookingSystem.TripService).
+2026-04-24 15:31:18.465 +05:30 [INF] Executed DbCommand (32ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "t"."Id", "t"."EndDate", "t"."Heading", "t"."ImageUrl", "t"."IsActive", "t"."Nights", "t"."Ports", "t"."Price", "t"."ShipName", "t"."StartDate", "t"."TripType"
+FROM "Trip" AS "t"
+2026-04-24 15:31:18.594 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[TicketBookingSystem.TripService.Models.Trip, TicketBookingSystem.TripService, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-04-24 15:31:18.626 +05:30 [INF] Executed action TicketBookingSystem.TripService.Controllers.TripsController.GetTrips (TicketBookingSystem.TripService) in 1747.5213ms
+2026-04-24 15:31:18.629 +05:30 [INF] Executed endpoint 'TicketBookingSystem.TripService.Controllers.TripsController.GetTrips (TicketBookingSystem.TripService)'
+2026-04-24 15:31:18.634 +05:30 [INF] HTTP GET /api/Trips responded 200 in 1915.1255 ms
+2026-04-24 15:31:18.652 +05:30 [INF] Request finished HTTP/2 GET https://localhost:5004/api/Trips - 200 null application/json; charset=utf-8 1946.8684ms
